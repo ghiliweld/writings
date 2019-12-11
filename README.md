@@ -1,1 +1,1 @@
-# thoughts
+# writings
