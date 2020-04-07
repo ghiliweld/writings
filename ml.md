@@ -14,7 +14,11 @@ there are 3 parts here at play during ml development:
 - the training algorithm: the steps your algorithm takes to best train your model for a certainn task
 - the model: the is the "black box" that makes predictions on the inputs you feed it
 
-the example i'll be referring to is [MNIST](https://en.wikipedia.org/wiki/MNIST_database) the starter ml project that consists of training a model to recognize handwritten images of numbers.
+not every problem is one that needs to be solved with ml. ml is particularly powerful at identifying patterns in data and differences in variables within that data that an algorithm could not account for easily. that last sentence might be poorly formulated so i'll explain what i mean with a simple examples.
+
+say i had a camera app which, thanks to a model i trained, is able to identify objects that i point to with the camera. when people look at a banana, they can usually identify what it is no matter how it's placed or what angle they're viewing it from. while it may be trivial for a person to do this, it's surprisingly difficult to implement an algorithm that can identify a banana accounting for all the angles a banana might be placed or under which lighting conditions it's placed in. a model, through sufficient training and data, can learn to identify a banana (or anything) no matter the circumstances it's presented in.
+
+the example problem i'll be mostly referring to throughout this doc is [MNIST](https://en.wikipedia.org/wiki/MNIST_database) the starter ml project that consists of training a model to recognize parse numbers from images of handwritten of numbers.
 
 a model, of which they're are many diff types (but i'm talking about neural networks here), is an ensemble of weights and biases (called "parameters") fine-tuned to return the probabilites of certain outputs being the actual result. in layman terms, you can see a parameter as being a setting in your model that determine what outcomes become more likely based on input is fed in. with the MNIST problem, if you feed an image of a number to your model what you'll get is an array of probabilites that the input number is the number corresponding to the array index.
 ex:
