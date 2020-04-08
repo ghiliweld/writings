@@ -1,1 +1,1 @@
-# notes on multipart computation (mpc)
+# notes on multiparty computation (mpc)
