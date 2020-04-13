@@ -54,20 +54,23 @@ keep in mind, in this example we would like all other probabilities to be close 
 
 a key part of trainning a good model is having good data. without good data, a model won't be able to extract meaningful patterns from them and thus won't be able to make accurate predictions. it would be like asking someone to look at pictures of numbers and guess what numbers they are except the number is almost completely covered. it would be pretty hard for them to answer.
 
+## types of models
+i'll introduce a few basic neural network architectures and talk about a few in depth.
+
+**perceptron**: a basic neural network architecture.
+
+**cnn**: a perceptron with convolutional layers that makes it much better at feature extraction. handy for image recognition since it makes of use of kernels that pool neighboring pixels together. it makes much more sense to enterpret neighboring pixels as being related than every pixel being related to every other one.
+
+**autoencoder**: an autoencoder is comprised of two models: an encoder and a decoder. the input goes through the encoder, in which the model encodes it in another (often compressed) format. the encoded input then goes through the decoder which reconstructs the original input. the goal is to train the autoencoder to encode and decode with minimal loss in data. it would be like starting with a completed puzzle, breaking it back into it's pieces and put em in a box, then asking the model to solve the puzzle.
+
+sounds basic but it can be used in interesting ways. given a noisy image (like an image with watermarks), an autoencoder can reconstruct an image sans watermarks. paired with GANs (which we'll see below), autoencoders can even be used to emulate cryptographic techniques like encryption such that adversaries cannot decode messages between two parties.
+
+**recurring/lstm**: models w/ memory. is able to retain past context for continued use down the line in the computation. popular architecture for natural language processing or time-series data analysis. reading doesn't solely happen character-by-character, words that appeared before are important to the meaning in a sentence. this is why being able to remember past information is important.
+
+**gan**: a gan is also comprised of two models: a generator and a discriminator. we want to train the generator to generate new original data such as paintings.
+
+i'll start explaning this by using a popular example. an art forger starts making bank by selling their forgeries to unsuspecting buyers (conveniently, none of them seem to be able to detect forgeries no matter how bad they are). soon enough a detective comes along that is able to, quite easily, distinguish between real art pieces and mediocre forgeries. the forger quickly has to improve in order to fool the detective again. likewise, the detective must improve in order to keep spotting fakes. this continues until neither party can get any better and the detective can only reach a theoretical certainty of 50% on every input, no better than a guess essentially. you've prolly already guessed it, but the forger is the generator and the detective is the discriminator in the gan context. our goal is to train our generator to make as accurate forgeries as possible but this approach can be used for just about anything.
+
+an advanced example of this is the cryptography example i wrote about above in the autoencoder section. briefly, imagine we have two parties, alice and bob, that want to exchange private messages and a third party, eve, that wants to eavesdrop. in the gan model, our generator is alice and the discriminator is eve. eve's goal is to decrypt encrypted messages from alice to bob. alice's goal is generate encrypted messages that only bob can decrypt.
+
 ## open problems
-- models are too big and too slow
-- training a model takes too long
-- training a model or making predicitions with one can be privacy invasive
-- deploying models to production is a hassle, has bad ux (more like developer experience in this case)
-
-### scaling
-
-solutions:
-
-### privacy
-
-solutions:
-
-### ux/dx
-
-solutions:
