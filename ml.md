@@ -74,3 +74,5 @@ i'll start explaning this by using a popular example. an art forger starts makin
 an advanced example of this is the cryptography example i wrote about above in the autoencoder section. briefly, imagine we have two parties, alice and bob, that want to exchange private messages and a third party, eve, that wants to eavesdrop. in the gan model, our generator is alice and the discriminator is eve. eve's goal is to decrypt encrypted messages from alice to bob. alice's goal is generate encrypted messages that only bob can decrypt.
 
 ## open problems
+this section is less of a notes section and more of a place to write my thoughts on open problems in ml, and some ideas that could solve em.
+the area of research that interests me the most in ml is ai safety & privacy. there's a lot of subfields to it such as privacy perserving ml. [Toward Trustworthy AI Development: Mechanisms for Supporting Verifiable Claims](https://arxiv.org/pdf/2004.07213.pdf) does a great job of discussing the topic. section 3 of the paper, on software mechanisms and recommendations, is what this section will be about.
