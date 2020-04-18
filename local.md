@@ -1,10 +1,11 @@
 # local first software (lfs)
 
-lfs is software that primarly works w/o any intermediate servers. [this blog post](https://blog.acolyer.org/2019/11/20/local-first-software/) does a great job at explaining it, but i'll do a write a quick summary on the benefits of lfs.
+lfs is software that primarly works w/o any intermediate servers. [this blog post](https://blog.acolyer.org/2019/11/20/local-first-software/) does a great job at explaining it, but i'll do a write a quick summary on the benefits of lfs. for more, there's also an [in-depth paper](https://martin.kleppmann.com/papers/local-first.pdf) on the topic.
 - it's fast
 - it works offline
 - it's secure and private by default
 - it gives users full ownership and control of their data
+- it has longevity (low risk if your data being lost as a service shuts down)
 
 the idea of lfs is pretty straightforward but sounds limited initially. but recent advances in p2p tech beg the question: **how far can we take lfs?**
 
