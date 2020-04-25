@@ -12,6 +12,8 @@ the next evolution of the jupyter notebook would be an environment with support 
 
 [sketch-sh](https://github.com/Sketch-sh/sketch-sh): notebooks for ocaml or reasonml
 
+cool [twitter thread](https://twitter.com/geoffreylitt/status/1253736114751406087)
+
 currently thinking about *pretty stationery for code...*
 
 ## [fourth generation programming language (4GL)](https://en.wikipedia.org/wiki/Fourth-generation_programming_language)
