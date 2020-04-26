@@ -9,6 +9,8 @@ a zkp allows a *prover* to provide to a *verifier* a proof of this nature:
 
 and the verifier will be able to verify that *p* is true without the prover having to divulge *s*.
 
+[why and how zk-snark works: definitive explanation](https://arxiv.org/pdf/1906.07221.pdf) is a great primer on zk-snarks that requires very little pre-requisite knowledge.
+
 
 ## examples
 
