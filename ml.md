@@ -73,6 +73,18 @@ i'll start explaning this by using a popular example. an art forger starts makin
 
 an advanced example of this is the cryptography example i wrote about above in the autoencoder section. briefly, imagine we have two parties, alice and bob, that want to exchange private messages and a third party, eve, that wants to eavesdrop. in the gan model, our generator is alice and the discriminator is eve. eve's goal is to decrypt encrypted messages from alice to bob. alice's goal is generate encrypted messages that only bob can decrypt.
 
-## open problems
+# open problems
 this section is less of a notes section and more of a place to write my thoughts on open problems in ml, and some ideas that could solve em.
 the area of research that interests me the most in ml is ai safety & privacy. there's a lot of subfields to it such as privacy perserving ml. [Toward Trustworthy AI Development: Mechanisms for Supporting Verifiable Claims](https://arxiv.org/pdf/2004.07213.pdf) does a great job of discussing the topic. section 3 of the paper, on software mechanisms and recommendations, is what this section will be about.
+
+## [succinct secure aggregation](https://github.com/ghiliweld/writings/blob/master/mpc.md#succint-secure-aggregation-ssa)
+sa solves the problem of federated learning where data providers want to train a model on their data w/o leaking their data to the model owner. in the sa protocol, gradients are split into shares blinded by pairwise-generated masks such that the masks cancel out once the data is aggregated. the problems w/ sa is that the number of messages needed for the protocol to run scales quadraticaly O(n^2) where n is the number of parties participating in the aggregation. succinct secure aggregation (ssa), seeks to improve on this complexity making it O(n). In other words, each party interacts with the model owner directly over any number of messages < n.
+
+### obliviousity
+obliviousity is a sort of zero-knowledge property where parties don't glean any information from each other. integrating obliviousity in a ml context would imply providers not learning any info about the model from the model owner and the owner won't learn any sensitive data from the providers.
+obliviousity can be obtained through:
+- one-to-many oblivious data (gradient vectors) aggregation
+  providers p_1 through p_n send gradients g_1, ..., g_n for aggregation. these gradients are summed to g_total obliviously.
+- one-to-one onblivious backpropagation
+  the owner send a blinded model to the provider then the provider runs backpropagation on their private data without learning anything about the model. the owner then receives the updated model and decrypts it.
+
