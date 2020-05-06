@@ -83,8 +83,14 @@ sa solves the problem of federated learning where data providers want to train a
 ### obliviousity
 obliviousity is a sort of zero-knowledge property where parties don't glean any information from each other. integrating obliviousity in a ml context would imply providers not learning any info about the model from the model owner and the owner won't learn any sensitive data from the providers.
 obliviousity can be obtained through:
-- one-to-many oblivious data (gradient vectors) aggregation
-  providers p_1 through p_n send gradients g_1, ..., g_n for aggregation. these gradients are summed to g_total obliviously.
-- one-to-one onblivious backpropagation
-  the owner send a blinded model to the provider then the provider runs backpropagation on their private data without learning anything about the model. the owner then receives the updated model and decrypts it.
+- **one-to-many oblivious data (gradient vectors) aggregation**
+  <br> providers p_1 through p_n send gradients g_1, ..., g_n for aggregation. these gradients are summed to g_total obliviously.
+- **one-to-one onblivious backpropagation**
+  <br> the owner send a blinded model to the provider then the provider runs backpropagation on their private data without learning anything about the model. the owner then receives the updated model and decrypts it.
+  
+ some papers on the topic:
+ - [Oblivious Polynomial Evaluation and Oblivious Neural Learning](http://citeseer.ist.psu.edu/viewdoc/download;jsessionid=295C7C83757F0440263D873AE249ECFF?doi=10.1.1.132.4411&rep=rep1&type=pdf)
+ - [Privacy-Preserving Aggregation of Time-Series Data with Public Verifiability from Simple Assumptions](https://eprint.iacr.org/2017/479.pdf)
+ - [Privacy-Preserving Stream Aggregation with Fault Tolerance](https://eprint.iacr.org/2011/655.pdf)
+ - [A New Framework for Privacy-Preserving Aggregation of Time-Series Data](https://hal.inria.fr/hal-01181321v3/document)
 
