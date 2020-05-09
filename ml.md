@@ -80,6 +80,37 @@ the area of research that interests me the most in ml is ai safety & privacy. th
 ## [succinct secure aggregation](https://github.com/ghiliweld/writings/blob/master/mpc.md#succint-secure-aggregation-ssa)
 sa solves the problem of federated learning where data providers want to train a model on their data w/o leaking their data to the model owner. in the sa protocol, gradients are split into shares blinded by pairwise-generated masks such that the masks cancel out once the data is aggregated. the problems w/ sa is that the number of messages needed for the protocol to run scales quadraticaly O(n^2) where n is the number of parties participating in the aggregation. succinct secure aggregation (ssa), seeks to improve on this complexity making it O(n). In other words, each party interacts with the model owner directly over any number of messages < n.
 
+### additive secret sharing
+additive secret sharing is masking a secret by adding a mask (also a secret) to the secret we want to hide.
+```
+let x = a + b for some a,b in N
+given only x, a and b are impossible to derive since they could be anything
+```
+this is a powerful property for masking provided data for aggregation.
+below i'll define a constant round O(n) aggregation scheme based on this property. i'll define it with scalars but it should work with vectors as well.
+```
+let P = {p_1, ..., p_n} be the set of providers in the aggregation, p_i is the i-th provider in the set
+
+let g_i be the gradient belonging to the i_th provider
+
+a provider p_i generates a random mask r_i, and sends x_i = g_i + r_i to the aggregator
+
+the aggregator computes X = sum(from: i = 1, to: n, of: x_i) i.e. x_1 + ... + x_n
+
+the aggregator then broadcasts X to all the providers
+
+p_i then verifies that X != (n-1)*g_i + (n)*r_i, if it is then the protocol is aborted
+
+else, p_i sends y_i = X - (n-1)*g_i - (n)*r_i
+
+once the aggregator then computes the Y = nX + sum(from: i = 1, to: n, of: y_i)
+
+Y = sum(from: i = 1, to: n, of: g_i) i.e. g_1 + ... + g_n which is the result we want
+```
+note: the security of the scheme is still trash. it looks aight under honest conditions but this is def fucked if a malicious user joins the round. commited values won't be unmasked but it's fairly easy to force a stalemate or send in innacurate data to mess up the results without being detected.
+
+unfortunately, the scheme does not support any dropouts so if a user goes missing after the whole round needs to be aborted. an added improvement would be making this dropout resistant or not making it non-interactive. the problem is making it non-interactive means the unmasking value needs to be sent with the mask, making it trivial for a malicious server to derive the value we're trying to hide.
+
 ### obliviousity
 obliviousity is a sort of zero-knowledge property where parties don't glean any information from each other. integrating obliviousity in a ml context would imply providers not learning any info about the model from the model owner and the owner won't learn any sensitive data from the providers.
 obliviousity can be obtained through:
