@@ -119,6 +119,12 @@ aggregator computes Y = 3(g_1 + a + g_2 + b + g_3 + c) - 2g_1 - 3a - 2g_2 - 3b -
 ```
 note: the security of the scheme is still trash. it looks aight under honest conditions but this is def fucked if a malicious user joins the round. commited values won't be unmasked but it's fairly easy to force a stalemate or send in innacurate data to mess up the results without being detected.
 
+edit: that was cap, there's a major flaw that undoes the masking
+if the aggregator computes the following, the scheme falls apart
+```
+(n *x_i - (X - y_i)) = n * x_i - (X - X + (n-1)g_i + n * r_i) = n(g_i + r_i) - (n-1)g_i - n*r_i = g_i
+```
+
 unfortunately, the scheme does not support any dropouts so if a user goes missing after the whole round needs to be aborted. an added improvement would be making this dropout resistant or not making it non-interactive. the problem is making it non-interactive means the unmasking value needs to be sent with the mask, making it trivial for a malicious server to derive the value we're trying to hide. adapting this scheme to work with shamir's techniques of polynomial based secret sharing might solve this problem, transforming it to a k-of-n threshold aggregation scheme.
 
 ### obliviousity
