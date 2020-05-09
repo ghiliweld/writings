@@ -109,7 +109,7 @@ Y = sum(from: i = 1, to: n, of: g_i) i.e. g_1 + ... + g_n which is the result we
 ```
 note: the security of the scheme is still trash. it looks aight under honest conditions but this is def fucked if a malicious user joins the round. commited values won't be unmasked but it's fairly easy to force a stalemate or send in innacurate data to mess up the results without being detected.
 
-unfortunately, the scheme does not support any dropouts so if a user goes missing after the whole round needs to be aborted. an added improvement would be making this dropout resistant or not making it non-interactive. the problem is making it non-interactive means the unmasking value needs to be sent with the mask, making it trivial for a malicious server to derive the value we're trying to hide.
+unfortunately, the scheme does not support any dropouts so if a user goes missing after the whole round needs to be aborted. an added improvement would be making this dropout resistant or not making it non-interactive. the problem is making it non-interactive means the unmasking value needs to be sent with the mask, making it trivial for a malicious server to derive the value we're trying to hide. adapting this scheme to work with shamir's techniques of polynomial based secret sharing might solve this problem, transforming it to a k-of-n threshold aggregation scheme.
 
 ### obliviousity
 obliviousity is a sort of zero-knowledge property where parties don't glean any information from each other. integrating obliviousity in a ml context would imply providers not learning any info about the model from the model owner and the owner won't learn any sensitive data from the providers.
