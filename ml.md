@@ -83,7 +83,7 @@ sa solves the problem of federated learning where data providers want to train a
 ### additive secret sharing
 additive secret sharing is masking a secret by adding a mask (also a secret) to the secret we want to hide.
 ```
-let x = a + b for some a,b in N
+let x = a + b for some a,b in Zn i.e. the integers modulo n (or any finite abelian group)
 given only x, a and b are impossible to derive since they could be anything
 ```
 this is a powerful property for masking provided data for aggregation.
