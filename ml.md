@@ -77,12 +77,17 @@ an advanced example of this is the cryptography example i wrote about above in t
 this section is less of a notes section and more of a place to write my thoughts on open problems in ml, and some ideas that could solve em.
 the area of research that interests me the most in ml is ai safety & privacy. there's a lot of subfields to it such as privacy perserving ml. [Toward Trustworthy AI Development: Mechanisms for Supporting Verifiable Claims](https://arxiv.org/pdf/2004.07213.pdf) does a great job of discussing the topic. section 3 of the paper, on software mechanisms and recommendations, is what this section will be about.
 
-## scaling
+# scaling
 machine learning does not scale in production. whether it's by the days it takes to train a model, the size of a model making it impossible for model devices to run em, or by latency in predictions, scaling is an issue that needs to be tackled.
 
 making model small:
 - teacher-student networks
 - sparse networks
+
+# privacy
+traning models requires a lot of data, training accurate models will require lots of real (often sensitive) data. privacy techniques for masking sensitive data is key to protecting users from data leaks.
+
+## derivitive data + differential privacy
 
 ## [succinct secure aggregation](https://github.com/ghiliweld/writings/blob/master/mpc.md#succint-secure-aggregation-ssa)
 sa solves the problem of federated learning where data providers want to train a model on their data w/o leaking their data to the model owner. in the sa protocol, gradients are split into shares blinded by pairwise-generated masks such that the masks cancel out once the data is aggregated. the problems w/ sa is that the number of messages needed for the protocol to run scales quadraticaly O(n^2) where n is the number of parties participating in the aggregation. succinct secure aggregation (ssa), seeks to improve on this complexity making it O(n).
