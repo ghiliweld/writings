@@ -11,6 +11,8 @@ and the verifier will be able to verify that *p* is true without the prover havi
 
 [why and how zk-snark works: definitive explanation](https://arxiv.org/pdf/1906.07221.pdf) is a great primer on zk-snarks that requires very little pre-requisite knowledge.
 
+[zk-snarks in a nutshell](https://chriseth.github.io/notes/articles/zksnarks/zksnarks.pdf) is also an excellent read.
+
 
 ## examples
 
