@@ -8,7 +8,8 @@
 ## Product Design Tenets
 - Ignore preconceived notions: preconceived notions get in the way of creating new things
 - Form follows function: to add on the point above, design should suit the product, nothing more nothing less
-- Ego is the downfall of a good product: remove yourself from the equation, regardless of whether it's bad business to do so
+- Ego is the downfall of a good product: remove your product from the equation, regardless of whether it's bad business to do  so. quiet products >>>>> attention-seeking products.
+- accessibility = bug free: if it's not accessible to everyone, your product is buggy. go back and fix it.
 - Build for efficiency: users should not be encouraged to stay for long stretches of time
 - Build for interest: users should be encouraged to come back frequently
 - Build the future you want to see
