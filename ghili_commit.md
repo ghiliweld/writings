@@ -3,10 +3,19 @@ a simple & elegant polynomial scheme with
 - O(1) commitment and proof sizes
 - no trusted setups or groups of unknown order involved.
 ---
-my beef with polynomial commitment schemes (trannsparent and trusted) was that commitments aren't made to polynomials, bur rather hidden evaluations of a polynomial.
-this is the reason trusted setups exist; to protect that hidden evaluation. i'm not quite sure how this helps, i still have to learn more about it.
+my beef with polynomial commitment schemes (transparent and trusted) was that commitments aren't made to polynomials, bur rather hidden evaluations of a polynomial.
+this is the reason trusted setups exist; to protect that hidden evaluation.
+given two polynomials, *p* and *p'* (both of degree d), *p* and *p'* will intersect at at most *d* points. this makes it unlikely that you can cheat your way to a valid evaluation by using a different polynomial than what you commit to. an evaluation at a hidden point *𝜏* will be almost impossible to cheat, which is why keeping our trusted setup is important. if our point *𝜏* gets exposed, it could undermine the security of the commitment scheme.
 
-i'd rather a polynomials commitment scheme that makes commitments to the polynomial coefficients explicitly, and then allow you to prove you know the result of their blind evaluation.
+i'd rather a polynomials commitment scheme that makes commitments to the polynomial coefficients explicitly, and then allow you to prove you know the result of their blind evaluation. the issue with commiting to coefficients is that their orderinng must be made explicit in the commitment. how to do this while maintaining a constant size commitment is tricky.
+
+---
+## the naive approach
+<img src="https://render.githubusercontent.com/render/math?math=c = (g^{a_0}, ..., g^{a_n})"> with a blind evaluation to compute  <img src="https://render.githubusercontent.com/render/math?math=g^{p(x)}">
+
+this works fine, except the commitment size and computation time is now O(n), where n = deg(p)
+
+we can do betteer
 
 ---
 ## the scheme
@@ -21,7 +30,7 @@ it must be
 - **efficient**: verifying an evaluation to a commmitment must be more efficient than evaluating the polynomial itself, so should be done in sublinear time
 
 ### commit
-note: this isn't binding, i.e. multiple different polynomials could map to the same commitment. if we want to commit to the coefficients we need a way to asign an order to em as well. how can we make it binding?
+> note: this isn't binding, i.e. multiple different polynomials could map to the same commitment. if we want to commit to the coefficients we need a way to asign an order to em as well. how can we make it binding?
 
 let g be a generator point in a group G
 
