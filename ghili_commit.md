@@ -2,14 +2,13 @@
 a simple & elegant polynomial scheme with 
 - O(1) commitment and proof sizes
 - no trusted setups or groups of unknown order involved.
----
+
 my beef with polynomial commitment schemes (transparent and trusted) was that commitments aren't made to polynomials, bur rather hidden evaluations of a polynomial.
 this is the reason trusted setups exist; to protect that hidden evaluation.
 given two polynomials, *p* and *p'* (both of degree d), *p* and *p'* will intersect at at most *d* points. this makes it unlikely that you can cheat your way to a valid evaluation by using a different polynomial than what you commit to. an evaluation at a hidden point *𝜏* will be almost impossible to cheat, which is why keeping our trusted setup is important. if our point *𝜏* gets exposed, it could undermine the security of the commitment scheme.
 
 i'd rather a polynomials commitment scheme that makes commitments to the polynomial coefficients explicitly, and then allow you to prove you know the result of their blind evaluation. the issue with commiting to coefficients is that their orderinng must be made explicit in the commitment. how to do this while maintaining a constant size commitment is tricky.
 
----
 ## the naive approach
 <img src="https://render.githubusercontent.com/render/math?math=c = (g^{a_0}, ..., g^{a_n})"> with a blind evaluation to compute  <img src="https://render.githubusercontent.com/render/math?math=g^{p(x)}">
 
@@ -17,7 +16,6 @@ this works fine, except the commitment size and computation time is now O(n), wh
 
 we can do betteer
 
----
 ## the scheme
 the ghili polynomial commitment scheme, like most polynomial commitment schemes, is comprised of a triple of algorithms
 - **commit**: takes a polynomial *p* (represented as a list of coefficients) and returns the commitment *c*
