@@ -15,8 +15,13 @@ the ghili polynomial commitment scheme, like most polynomial commitment schemes,
 - **open**: takes a commitment *c*, an integer *x*, and an integer *y* and returns the proof *π*
 - **open**: takes a commitment *c*, an integer *x*, an integer *y*, and a proof *π* and returns either 0 or 1
 
+it must be 
+- **binding**: two polynomials *p* and *p'* cannot map to the same commitment *c*
+- **hiding**: a polynomial *p* cannot be uncovered from a commitment *c*
+- **efficient**: verifying an evaluation to a commmitment must be more efficient than evaluating the polynomial itself, so should be done in sublinear time
+
 ### commit
-note: this isn't binding, i.e. multiple different polynomials could map to the same commitment. how do make it binding?
+note: this isn't binding, i.e. multiple different polynomials could map to the same commitment. if we want to commit to the coefficients we need a way to asign an order to em as well. how can we make it binding?
 
 let g be a generator point in a group G
 
