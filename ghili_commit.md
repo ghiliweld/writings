@@ -53,3 +53,11 @@ tl;dr onn the plan:
 - commit to coefficients
 - aggregate them somehow with PointProof techniques
 
+## is this even possible?
+let e be a pairing bilinear map -- e: G x G -> H
+
+let e' be a self-bilinear map -- G x G -> G
+
+self-bilinear are proven to not be secure, but if were to combine self-bilinear and regular bilinear maps to create a secure multilinear map it could be a way of commiting to coeffs a_0 through a_n. so self-bilinear map through n-1 operations and then a regular bilinear map at the last step to ensure security.
+
+ex: e'(g^a_0, g^a_1) ->, g^a_2) -> ... e(->, g^a_n) = h^p
