@@ -19,7 +19,6 @@ this works fine, except the commitment size and computation time is now O(n), wh
 
 we can do betteer
 
-## close but no dice :/
 the ghili polynomial commitment scheme, like most polynomial commitment schemes, is comprised of a triple of algorithms
 - **commit**: takes a polynomial *p* (represented as a list of coefficients) and returns the commitment *c*
 - **open**: takes a commitment *c*, an integer *x*, and an integer *y* and returns the proof *π*
@@ -30,7 +29,9 @@ it must be
 - **hiding**: a polynomial *p* cannot be uncovered from a commitment *c*
 - **efficient**: verifying an evaluation to a commmitment must be more efficient than evaluating the polynomial itself, so should be done in sublinear time
 
-### commit
+note that the binding criteria doesn't require *p* to map to a unique commitment *c*, so we can have commitments *c* and *c'* for a *p*. not exactly relevant in the literature but it might come in handy for new schemes.
+
+## close but no dice :/
 > note: this isn't binding, i.e. multiple different polynomials could map to the same commitment. if we want to commit to the coefficients we need a way to asign an order to em as well. how can we make it binding?
 
 let g be a generator point in a group G
