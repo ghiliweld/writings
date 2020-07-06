@@ -3,14 +3,33 @@ a simple & elegant polynomial scheme with
 - O(1) commitment and proof sizes
 - no trusted setups or groups of unknown order involved.
 
-my beef with polynomial commitment schemes (transparent and trusted) was that commitments aren't made to polynomials, bur rather hidden evaluations of a polynomial.
+my beef with polynomial commitment schemes (transparent and trusted) was that commitments aren't made to polynomials, but rather hidden evaluations of a polynomial.
 this is the reason trusted setups exist; to protect that hidden evaluation.
 given two polynomials, *p* and *p'* (both of degree d), *p* and *p'* will intersect at at most *d* points. this makes it unlikely that you can cheat your way to a valid evaluation by using a different polynomial than what you commit to. an evaluation at a hidden point *𝜏* will be almost impossible to cheat, which is why keeping our trusted setup is important. if our point *𝜏* gets exposed, it could undermine the security of the commitment scheme.
 
-> we can conclude that evaluation6 of any polynomial at an arbitrary point is akin to the
+> we can conclude that evaluation of any polynomial at an arbitrary point is akin to the
 representation of its unique identity - from [this paper](https://arxiv.org/pdf/1906.07221.pdf)
 
-i'd rather a polynomials commitment scheme that makes commitments to the polynomial coefficients explicitly, and then allow you to prove you know the result of their blind evaluation. the issue with commiting to coefficients is that their orderinng must be made explicit in the commitment. how to do this while maintaining a constant size commitment is tricky.
+i'd rather a polynomials commitment scheme that makes commitments to the polynomial coefficients explicitly, and then allow you to prove you know the result of their blind evaluation. the issue with commiting to coefficients is that their ordering must be made explicit in the commitment. how to do this while maintaining a constant size commitment is tricky cause elliptic curve groups are commutative.
+
+## polynomial representations
+to commit to a polynomial you need a way to represent it such that a commitment to *p* can't also be a commitment to *p'*. there's several ways of doing this:
+- ordered list of coefficients i.e. { a_0, ..., a_n }
+- spare list of coefficients and their exponent i.e. { (a_i, i), ..., (a_j, j), (a_n, n) } (no zeros in the list)
+- point-value form i.e. {(x_1, y_1), ..., (x_n, y_n)} (not unique, two point-value sets can point to the same polynomial)
+- evalutation at a point *r* i.e. p(r) (other polynomials of degree n can only intersect at at most n points, unlikely to find an intersection at *r*)
+- factored form i.e. p(x) = (x - f_0)...(x - f_n) (ordering doesn't matter, the list is commutative)
+
+[Kate commitments](https://alinush.github.io/2020/05/06/kzg-polynomial-commitments.html) choose to evaluate the polynomial at a **hidden** point *r*. makes for an easily succinct commitment but requires a trusted setup.
+
+the first representations is impossible becausee of the oredering requirement in the list. commiting to the coeffs couldn't work in a commutative group. a quick example would be that commiting to 2x^2 + 3x + 5 would be the same commitment as 2x^2 + 5x + 3.
+
+if it'll work in a elliptic curve group (for the hiding criteria) then it needs to work regardless of order.
+
+## polynomial remainder theorem
+the polynomial remainder theorem states p(a) = b   <=>   p(x) - b / x - a
+
+so for x - r perfectly divides p(x) - p(a) for any x and a
 
 ## the naive approach
 <img src="https://render.githubusercontent.com/render/math?math=c = (g^{a_0}, ..., g^{a_n})"> with a blind evaluation to compute  <img src="https://render.githubusercontent.com/render/math?math=g^{p(x)}">
@@ -54,11 +73,6 @@ tl;dr onn the plan:
 - commit to coefficients
 - aggregate them somehow with PointProof techniques
 
-## is this even possible?
-let e be a pairing bilinear map -- e: G x G -> H
-
-let e' be a self-bilinear map -- G x G -> G
-
-self-bilinear are proven to not be secure, but if were to combine self-bilinear and regular bilinear maps to create a secure multilinear map it could be a way of commiting to coeffs a_0 through a_n. so self-bilinear map through n-1 operations and then a regular bilinear map at the last step to ensure security.
-
-ex: e'(g^a_0, g^a_1) ->, g^a_2) -> ... e(->, g^a_n) = h^p
+## point-value commitments
+them polynomial remaind theorem tells us x - r perfectly divides p(x) - p(a) for any x and a.
+if we have a commitment to a point-value list like {(x_1, y_1), ..., (x_n, y_n)} maybe we can check any point *a* against our list. this is easy enough of we keep the list at hand but can we shrink the list to a constant size.
