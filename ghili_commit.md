@@ -5,7 +5,7 @@ a simple & elegant polynomial scheme with
 
 my beef with polynomial commitment schemes (transparent and trusted) was that commitments aren't made to polynomials, but rather hidden evaluations of a polynomial.
 this is the reason trusted setups exist; to protect that hidden evaluation.
-given two polynomials, *p* and *p'* (both of degree d), *p* and *p'* will intersect at at most *d* points. this makes it unlikely that you can cheat your way to a valid evaluation by using a different polynomial than what you commit to. an evaluation at a hidden point *𝜏* will be almost impossible to cheat, which is why keeping our trusted setup is important. if our point *𝜏* gets exposed, it could undermine the security of the commitment scheme.
+given two polynomials, *p* and *p'* (both of degree d), *p* and *p'* will intersect at at most *d* points. this makes it unlikely that you can cheat your way to a valid evaluation by using a different polynomial than what you commit to. an evaluation at a hidden point *𝜏* will be almost impossible to cheat, which is why keeping our trusted setup secure is important. if our point *𝜏* gets exposed, it could undermine the security of the commitment scheme.
 
 > we can conclude that evaluation of any polynomial at an arbitrary point is akin to the
 representation of its unique identity - from [this paper](https://arxiv.org/pdf/1906.07221.pdf)
