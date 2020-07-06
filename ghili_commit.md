@@ -19,7 +19,7 @@ this works fine, except the commitment size and computation time is now O(n), wh
 
 we can do betteer
 
-## the scheme
+## close but no dice :/
 the ghili polynomial commitment scheme, like most polynomial commitment schemes, is comprised of a triple of algorithms
 - **commit**: takes a polynomial *p* (represented as a list of coefficients) and returns the commitment *c*
 - **open**: takes a commitment *c*, an integer *x*, and an integer *y* and returns the proof *π*
@@ -37,8 +37,19 @@ let g be a generator point in a group G
 
 <img src="https://render.githubusercontent.com/render/math?math=%24c%20%3D%20%5Csum_%7Bi%3D0%7D%5E%7Bn%7D%20g%5E%7Ba_i%7D%24"> where a_i is the i-th coefficient in a polynomial *p*
 
-### open
+## progress?
+this is the situation so far:
+- commiting to a coefficient a_i is easy, it's just an integer so raise g to the a_i
+- commiting to an ordered sequence (coefficient list of a polynomial) isn't feasible cause of how elliptic curve groups are commutative
+  i.e. we could commit to *p* and *p'* with the same commitment *c*
+- so commiting to a polynomial by explicitly commiting to it's coefficients won't be straightforward
 
+point #1 provides a hint as how to go about this. we can commit to the coefficients individually, but making those the commitment gives us size O(n).
+is there way to aggregate these coeffs injectively to get size O(1)?
 
-### verify
+i think the [PointProofs](https://eprint.iacr.org/2020/419.pdf) offers some guidance here. the paper introduces cross-commitment aggregation. commitments use a trusted setup with secret trapdoor *𝜏* **but** that trapdoor is not used for the a_0 coeff since it it's multiplied by x^0 which is 1. therefore, i'm hoping we can commit to polynomials p_i = a_i the same way we would commit to anythinng using PointProofs then we aggregate them.
+
+tl;dr onn the plan:
+- commit to coefficients
+- aggregate them somehow with PointProof techniques
 
