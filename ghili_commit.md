@@ -31,6 +31,11 @@ the polynomial remainder theorem states p(a) = b   <=>   p(x) - b / x - a
 
 so for x - r perfectly divides p(x) - p(a) for any x and a
 
+## bilinear pairings
+waterloo has a great [introduction paper](https://www.math.uwaterloo.ca/~ajmeneze/publications/pairings.pdf) on pairing-based cryptography. essentially a bilinear pairing is a map on elliptic curves that allows you to multiply two points on an elliptic curve together, even tho elliptic curves are an additive group and not a multiplicative one.
+
+![bilinear pairing definition](pairing.png)
+
 ## the naive approach
 <img src="https://render.githubusercontent.com/render/math?math=c = (g^{a_0}, ..., g^{a_n})"> with a blind evaluation to compute  <img src="https://render.githubusercontent.com/render/math?math=g^{p(x)}">
 
