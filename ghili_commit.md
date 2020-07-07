@@ -93,8 +93,8 @@ the problem is the right side, which doesn't seem easily aggretable.
 the ghili commitment scheme is a tuple of algorithms (Commit, Open, Verify)
 
 - Commit({ (x_1, y_1), ..., (x_n, y_n) }) --> c_x, c_y
-- Open(c_x, c_y, x, y) --> π
-- Verify(c_x, c_y, x, y, π) --> { 0, 1 }
+- Open(c_x, c_y, x, y) --> π, 𝜏 (𝜏 is used as a group element to counteract π)
+- Verify(c_x, c_y, x, y, π, 𝜏) --> { 0, 1 }
 
 ### commit
 <img src="https://render.githubusercontent.com/render/math?math=c_x%20%3D%20%5Cprod_%7Bi%3D1%7D%5E%7Bn%7D%20g%5E%7Bx_i%7D">
@@ -106,4 +106,4 @@ the ghili commitment scheme is a tuple of algorithms (Commit, Open, Verify)
 ### verify
 > π needs to be a static variable, and can't depend on *i* or else the equation won't check out.
 
-e(c_y/g^{ n * p(r) }, g) = e(π, g^c_x/g^{ n * r }) ? 1 : 0
+e(c_y/g^{ n * p(r) }, g) = e(π, g^c_x/g^{ n * r })e(𝜏, g^c_x/g^{ n * r }) ? 1 : 0
