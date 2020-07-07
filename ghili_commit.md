@@ -62,24 +62,26 @@ let g be a generator point in a group G
 
 <img src="https://render.githubusercontent.com/render/math?math=%24c%20%3D%20%5Csum_%7Bi%3D0%7D%5E%7Bn%7D%20g%5E%7Ba_i%7D%24"> where a_i is the i-th coefficient in a polynomial *p*
 
-## progress?
-this is the situation so far:
-- commiting to a coefficient a_i is easy, it's just an integer so raise g to the a_i
-- commiting to an ordered sequence (coefficient list of a polynomial) isn't feasible cause of how elliptic curve groups are commutative
-  i.e. we could commit to *p* and *p'* with the same commitment *c*
-- so commiting to a polynomial by explicitly commiting to it's coefficients won't be straightforward
-
-point #1 provides a hint as how to go about this. we can commit to the coefficients individually, but making those the commitment gives us size O(n).
-is there way to aggregate these coeffs injectively to get size O(1)?
-
-i think the [PointProofs](https://eprint.iacr.org/2020/419.pdf) offers some guidance here. the paper introduces cross-commitment aggregation. commitments use a trusted setup with secret trapdoor *𝜏* **but** that trapdoor is not used for the a_0 coeff since it it's multiplied by x^0 which is 1. therefore, i'm hoping we can commit to polynomials p_i = a_i the same way we would commit to anythinng using PointProofs then we aggregate them.
-
-tl;dr on the plan:
-- commit to coefficients
-- aggregate them somehow with PointProof techniques
-
-## point-value commitments
-them polynomial remaind theorem tells us x - r perfectly divides p(x) - p(a) for any x and a.
+## progress w/ point-value commitments?
+the polynomial remainder theorem tells us x - a perfectly divides p(x) - p(a) for any x and a.
 if we have a commitment to a point-value list like {(x_1, y_1), ..., (x_n, y_n)} maybe we can check any point *a* against our list. 
 this approach is cool cause we won't need a trusted setup (no setup at all actually) cause there's no way to cheat this, a point-value list (of length n) will only correspond to *one* polynomial!
 this is easy enough if we keep the list at hand but can we shrink the list to a constant size?
+
+let's see how we can check that x - r perfectly divides p(x) - p(r) on elliptic curves using bilinear pairings.
+
+let π_i = g^q(x_i) for some polynomial q, this will be a proof left to the prover to generate for the verifier. if q is a valid factor then the verification check will pass.
+
+e(g^p(x_i)/g^p(r), g) = e(π_i, g^x_i/g^r)
+
+e(g^{p(x_i) - p(r)}, g) = e(g^q(x_i), g^{x_i - r})
+
+e(g, g)^{p(x_i) - p(r)} = e(g, g)^q(x_i)(x_i - r)
+
+p(x_i) - p(r)= q(x_i)(x_i - r)
+
+so our equation checks out for any point x_i, if we wanted to check x_j we could add it on the side to make sure that checks out too
+
+e(g^p(x_i)/g^p(r), g)e(g^p(x_j)/g^p(r), g) = e(π_i, g^x_i/g^r)e(π_j, g^x_j/g^r)
+
+and we can keep doing this for n points, and if our equation doesn't check out at any point the whole check fails. what if we used our point-value list we commited to for our x_i values?
