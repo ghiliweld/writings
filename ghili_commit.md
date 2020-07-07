@@ -84,4 +84,7 @@ so our equation checks out for any point x_i, if we wanted to check x_j we could
 
 e(g^p(x_i)/g^p(r), g)e(g^p(x_j)/g^p(r), g) = e(π_i, g^x_i/g^r)e(π_j, g^x_j/g^r)
 
-and we can keep doing this for n points, and if our equation doesn't check out at any point the whole check fails. what if we used our point-value list we commited to for our x_i values?
+and we can keep doing this for n points, and if our equation doesn't check out at any point the whole check fails. what if we used our point-value list we commited to for our x_i values? we would have n points to check against and if *r* and *p(r)* doesn't match with a single point in the list then the whole check fails. this is fairly simple to do, as shown above. now is this aggregetable?
+
+the left side of the equation seems aggregetable, you can transform it to e(g^{p(x_1) + ... + p(x_n)}, g)e(g^{-np(r)}, g) (left as exercise for the reader lol).
+the problem is the right side, which doesn't seem easily aggretable.
