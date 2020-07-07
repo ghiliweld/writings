@@ -88,3 +88,22 @@ and we can keep doing this for n points, and if our equation doesn't check out a
 
 the left side of the equation seems aggregetable, you can transform it to e(g^{p(x_1) + ... + p(x_n)}, g)e(g^{-np(r)}, g) (left as exercise for the reader lol).
 the problem is the right side, which doesn't seem easily aggretable.
+
+## the scheme
+the ghili commitment scheme is a tuple of algorithms (Commit, Open, Verify)
+
+- Commit({ (x_1, y_1), ..., (x_n, y_n) }) --> c_x, c_y
+- Open(c_x, c_y, x, y) --> π
+- Verify(c_x, c_y, x, y, π) --> { 0, 1 }
+
+### commit
+<img src="https://render.githubusercontent.com/render/math?math=c_x%20%3D%20%5Cprod_%7Bi%3D1%7D%5E%7Bn%7D%20g%5E%7Bx_i%7D">
+
+<img src="https://render.githubusercontent.com/render/math?math=c_y%20%3D%20%5Cprod_%7Bi%3D1%7D%5E%7Bn%7D%20g%5E%7By_i%7D">
+
+### open
+
+### verify
+> π needs to be a static variable, and can't depend on *i* or else the equation won't check out.
+
+e(c_y/g^{ n * p(r) }, g) = e(π, g^c_x/g^{ n * r }) ? 1 : 0
