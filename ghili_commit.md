@@ -98,6 +98,11 @@ the ghili commitment scheme is a tuple of algorithms (Commit, Open, Verify)
 - Open(c_x, c_y, x, y) --> π
 - Verify(c_x, c_y, x, y, π) --> { 0, 1 }
 
+> the intuition behind the scheme is quite simple:
+> - a polynomial p of degree d is uniquely defined at d + 1 points
+> - if two points are defined on a polynomial, the polynomial remainder theorem holds
+> - given points d_i (on p) and a point r, if the polynnomial remainder theorem holds for r and each d_i then r is defined on p
+
 ### commit
 <img src="https://render.githubusercontent.com/render/math?math=c_x%20%3D%20%5Cprod_%7Bi%3D1%7D%5E%7Bn%7D%20g%5E%7Bx_i%7D">
 
