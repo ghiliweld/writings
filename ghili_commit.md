@@ -89,6 +89,8 @@ and we can keep doing this for n points, and if our equation doesn't check out a
 the left side of the equation seems aggregetable, you can transform it to e(g^{p(x_1) + ... + p(x_n)}, g)e(g^{-np(r)}, g) (left as exercise for the reader lol).
 the problem is the right side, which doesn't seem easily aggretable.
 
+a solution to this, could be using a quasi-[batch proof technique](https://alinush.github.io/2020/05/06/kzg-polynomial-commitments.html#batch-proofs) similar to the one illustrated in Kate's scheme. if we can batch those proofs into one constant then the equation will check out.
+
 ## the scheme
 the ghili commitment scheme is a tuple of algorithms (Commit, Open, Verify)
 
