@@ -91,7 +91,7 @@ the problem is the right side, which doesn't seem easily aggretable.
 
 a solution to this, could be using a quasi-[batch proof technique](https://alinush.github.io/2020/05/06/kzg-polynomial-commitments.html#batch-proofs) similar to the one illustrated in Kate's scheme. if we can batch those proofs into one constant then the equation will check out.
 
-if an adapted KZG technique won't work maybe we need a more efficient method to check (r, p(r)) against n points. something suited to point-value representations.
+if an adapted KZG technique won't work maybe we need a more efficient method to check (r, p(r)) against n points. something suited to point-value representations. a batch polynomial remainder theorem would cool for checking if the polynomial remainder theorem holds for n + 1 points.
 
 ## the scheme
 the ghili commitment scheme is a tuple of algorithms (Commit, Open, Verify)
