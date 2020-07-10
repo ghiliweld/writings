@@ -94,7 +94,7 @@ a solution to this, could be using a quasi-[batch proof technique](https://alinu
 if an adapted KZG technique won't work maybe we need a more efficient method to check (r, p(r)) against n points. something suited to point-value representations. a batch polynomial remainder theorem would cool for checking if the polynomial remainder theorem holds for n + 1 points.
 
 ## the scheme
-the ghili commitment scheme is a tuple of algorithms (Commit, Open, Verify)
+the ghili commitment scheme is a quadruple of algorithms (Setup, Commit, Open, Verify)
 
 - Commit({ (x_1, y_1), ..., (x_n, y_n) }) --> c_x, c_y
 - Open(c_x, c_y, x, y) --> π
@@ -105,14 +105,37 @@ the ghili commitment scheme is a tuple of algorithms (Commit, Open, Verify)
 > - if two points are defined on a polynomial, the polynomial remainder theorem holds
 > - given points d_i (on p) and a point r, if the polynnomial remainder theorem holds for r and each d_i then r is defined on p
 
-### commit
-<img src="https://render.githubusercontent.com/render/math?math=c_x%20%3D%20%5Cprod_%7Bi%3D1%7D%5E%7Bn%7D%20g%5E%7Bx_i%7D">
+unfortunately wasn't able to have a setup-less scheme but at least it isn't trusted
 
-<img src="https://render.githubusercontent.com/render/math?math=c_y%20%3D%20%5Cprod_%7Bi%3D1%7D%5E%7Bn%7D%20g%5E%7By_i%7D">
+### setup
+prover and verifier agree on the degreee *d* of the polynomial to commit to.
+prover or verifier generates a set X = { x_0, ..., x_d }  of integers randomly. this list is public.
 
-### open
+### commit(p)
+let p be a polynomial of degree d
+compute p(x_i) for every x_i in X then sum them all up (we'll refer to this sum as p(X)).
+compute the commitment c = g^p(X) then send it to the verifier, where g is a generator in a group G
 
-### verify
-> π needs to be a static variable, and can't depend on *i* or else the equation won't check out.
+### open(r, p(r))
+prover computes Π(x_i - r) (possible cause each x_i is public)
 
-e(c_y/g^{ n * p(r) }, g) = e(π, g^c_x/g^{ n * r }) ? 1 : 0
+prover computes q = p(X) - (d * p(r)) / Π(x_i - r) and then π = g^q
+
+### verify(c, π, r, p(r))
+verifier computes Π(x_i - r) (possible cause each x_i is public)
+
+if the equality below checks out output 1, or else output 0
+e(c/g^{ d * p(r) }, g) = e(π, g^Π(x_i - r)) ? 1 : 0
+
+this works (left as an exercise to the reader).
+
+### security
+while c wouldn't be binding ordinarily, the list X that we always check against makes the commitment binding. it's also computationaly hiding by DL assumptions.
+
+### extra bells & whistles
+
+**same commitment aggregation**
+same commitment aggregation is to aggregate opening proofs for different points *a_i* on the same polynomial.
+
+**cross commitment aggregation**
+cross commitment aggregation is to aggregate commitments for different polynomials *p_i* and aggregate opening proofs as well.
