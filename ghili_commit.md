@@ -136,14 +136,15 @@ this works (left as an exercise to the reader).
 while c wouldn't be binding ordinarily, the list X that we always check against makes the commitment binding. it's also computationaly hiding by DL assumptions.
 
 ### stats
-size of crs is O(d)
-size of commitment c is O(1)
-size of opening proof is also O(1)
+- size of crs is O(d)
+- size of commitment c is O(1)
+- size of opening proof is also O(1)
 
 ### extra bells & whistles
 
-**same commitment aggregation**
-same commitment aggregation is to aggregate opening proofs for different points *a_i* on the same polynomial.
+a check on the box means that it's possible with the scheme
 
-**cross commitment aggregation**
-cross commitment aggregation is to aggregate commitments for different polynomials *p_i* and aggregate opening proofs as well.
+✅one opening to one commitment
+✅multiple openings to one commitment
+✅one opening to multiple commitment
+❌multiple openings to multiple commitments
