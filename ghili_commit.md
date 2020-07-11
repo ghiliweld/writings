@@ -127,6 +127,7 @@ prover computes q = p(X) - (d * p(r)) / Π(x_i - r) and then π = g^q
 verifier computes Π(x_i - r) (possible cause each x_i is public)
 
 if the equality below checks out output 1, or else output 0
+
 e(c/g^{ d * p(r) }, g) = e(π, g^Π(x_i - r)) ? 1 : 0
 
 this works (left as an exercise to the reader).
