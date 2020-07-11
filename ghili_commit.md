@@ -145,6 +145,9 @@ while c wouldn't be binding ordinarily, the list X that we always check against 
 a check on the box means that it's possible with the scheme
 
 ✅one opening to one commitment
+
 ✅multiple openings to one commitment
+
 ✅one opening to multiple commitment
+
 ❌multiple openings to multiple commitments
