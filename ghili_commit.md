@@ -109,7 +109,9 @@ unfortunately wasn't able to have a setup-less scheme but at least it isn't trus
 
 ### setup
 prover and verifier agree on the degreee *d* of the polynomial to commit to.
-prover or verifier generates a set X = { x_0, ..., x_d }  of integers randomly. this list is public.
+prover or verifier generates a set X = { x_0, ..., x_d }  of integers randomly. this list is public and acts as our common reference strinng (crs).
+
+no params that need to be kept secure/hidden (aka no toxic waste) here!
 
 ### commit(p)
 let p be a polynomial of degree d
@@ -131,6 +133,11 @@ this works (left as an exercise to the reader).
 
 ### security
 while c wouldn't be binding ordinarily, the list X that we always check against makes the commitment binding. it's also computationaly hiding by DL assumptions.
+
+### stats
+size of crs is O(d)
+size of commitment c is O(1)
+size of opening proof is also O(1)
 
 ### extra bells & whistles
 
