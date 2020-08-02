@@ -15,7 +15,7 @@ i'd rather a polynomials commitment scheme that makes commitments to the polynom
 ## polynomial representations
 to commit to a polynomial you need a way to represent it such that a commitment to *p* can't also be a commitment to *p'*. soon, you need to ask how do you give a polynomial an "id" of sorts. there's several ways of doing this:
 - ordered list of coefficients i.e. { a_0, ..., a_n }
-- spare list of coefficients and their exponent i.e. { (a_i, i), ..., (a_j, j), (a_n, n) } (no zeros in the list)
+- sparse list of coefficients and their exponent i.e. { (a_i, i), ..., (a_j, j), (a_n, n) } (no zeros in the list)
 - point-value form i.e. {(x_1, y_1), ..., (x_n, y_n)} (not unique, two point-value sets can point to the same polynomial)
 - evalutation at a point *r* i.e. p(r) (other polynomials of degree n can only intersect at at most n points, unlikely to find an intersection at *r*)
 - factored form i.e. p(x) = (x - f_0)...(x - f_n) (ordering doesn't matter, the list is commutative)
