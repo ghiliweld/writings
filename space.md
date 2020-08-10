@@ -20,7 +20,7 @@ examples:
 ## where figma comes in
 figma was built to be a design tool but it's actually very flexible and can be used for games and community building.
 
-[tweet](https://twitter.com/ghiliweld/status/1273816361295380480) [other tweet](https://twitter.com/ghiliweld/status/1291573985008857088)
+[tweet](https://twitter.com/ghiliweld/status/1273816361295380480) and [other tweet](https://twitter.com/ghiliweld/status/1291573985008857088)
 
 ![floaroma meadow](https://64.media.tumblr.com/tumblr_m0l0mc0xYn1r2mho4o1_500.gifv)
 
