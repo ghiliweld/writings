@@ -1,4 +1,4 @@
-# kotatsu: a new kind of social network
+# 🌸🍊kotatsu: a new kind of social network
 
 this doc will outline a design for a privacy-first and local-first social network
 
