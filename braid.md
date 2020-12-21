@@ -34,4 +34,4 @@ braid does make http stateful, servers need to maintain version history and a li
 ## adoption
 the easiest strategy for accelerating adoption of the braid protocol is by implementing middleware for many server/clients in different languages. developers won't have to worry about "braidifying" their requests/responses.
 
-[wai-braid](https://github.com/ghiliweld/wai-braid) is a haskell [wai](https://www.yesodweb.com/book/web-application-interface) middleware for transforming outgoing requests into a braid format adding the appropriate headers.
+[wai-braid](https://github.com/ghiliweld/wai-braid) is a haskell [wai](https://www.yesodweb.com/book/web-application-interface) middleware for transforming outgoing responses into a braid format adding the appropriate headers.
