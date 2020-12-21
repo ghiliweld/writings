@@ -26,7 +26,7 @@ it turns out that http is very close to being a htsp, we just need to add 5 head
 | Version            | version-hash         | Version identifier for a resource in time           |
 | Parents            | [version-hash]       | Array of version hashes, versions form a DAG        |
 | Merge-Type         | sync-protocol        | Specify a merge type to synchronize a resource      |
-| Patches            | [patch]              | Array of patches, transformations to a resources    |
+| Patches            | [patch]              | Array of patches, transformations to a resource     |
 | Subscribe          | keep-alive=(seconds) | Flag for subscription, optional (seconds) parameter |
 
 braid does make http stateful, servers need to maintain version history and a list of subcribers to send minimal diffs to clients. how this is persisted is left up to clients and servers, braid describes a implementation agnostic format for synchronizing between peers.
