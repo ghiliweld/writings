@@ -29,9 +29,9 @@ it turns out that http is very close to being a htsp, we just need to add 5 head
 | Patches            | [patch]              | Array of patches, transformations to a resources    |
 | Subscribe          | keep-alive=(seconds) | Flag for subscription, optional (seconds) parameter |
 
-braid does make http stateful, servers need to maintain version history and a list of subcribers to send minimal diffs to clients. How this is persisted is left up to clients and servers, braid describes a implementation agnostic format for synchronizing between peers.
+braid does make http stateful, servers need to maintain version history and a list of subcribers to send minimal diffs to clients. how this is persisted is left up to clients and servers, braid describes a implementation agnostic format for synchronizing between peers.
 
 ## adoption
-the easiest strategy for accelerating adoption of the braid protocol is by implementing middleware for many server/clients in different languages. Developers won't have to worry about "braidifying" their requests/responses.
+the easiest strategy for accelerating adoption of the braid protocol is by implementing middleware for many server/clients in different languages. developers won't have to worry about "braidifying" their requests/responses.
 
 [wai-braid](https://github.com/ghiliweld/wai-braid) is a haskell [wai](https://www.yesodweb.com/book/web-application-interface) middleware for transforming outgoing requests into a braid format adding the appropriate headers.
