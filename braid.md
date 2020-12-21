@@ -12,7 +12,9 @@ braid adds these features to HTTP:
 - patches to Range Requests
 - merge-types to specify OT or CRDT behavior
 
-Learn more at [braid.news](https://braid.news/)
+learn more at [braid.news](https://braid.news/)
+
+the first 22 minutes of [this video](https://www.youtube.com/watch?v=L3eYmVKTmWM) are also really good
 
 ---
 ## motivation
