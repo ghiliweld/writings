@@ -19,7 +19,7 @@ Learn more at [braid.news](https://braid.news/)
 braid's goal is to extend http to state sync protocol (from http to hypertext synchronization protocol), in order to do away with custom sync protocols and make state across the web more interoperable.
 
 ## modifications
-it turns out that http is very close to being a htsp, we just need to add 5 headers to requests and responses.
+it turns out that http is very close to being a htsp, we just need to add 5 headers to requests and responses as well as a new status code `209 Subscription`.
   
 | Header Name        | Property             | Description                                         |
 |:------------------:|:--------------------:|:----------------------------------------------------|
