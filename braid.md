@@ -20,6 +20,10 @@ the first 22 minutes of [this video](https://www.youtube.com/watch?v=L3eYmVKTmWM
 ## motivation
 braid's goal is to extend http to state sync protocol (from http to hypertext synchronization protocol), in order to do away with custom sync protocols and make state across the web more interoperable.
 
+adopting the braid standard will make real time updates more seamless and easier to implement for developers. this is still just a small incremental improvement to the current web, however.
+
+developers will be able to open up their state to being synced by the rest of the web. the big picture here, is that we can have a social network like twitter where each person's feed are being synced to others from their own sites instead of having to access twitter.com directly. we'd just be syncing with our network directly (followers, following). this allows for a more private form of social media.
+
 ## modifications
 it turns out that http is very close to being a htsp, we just need to add 5 headers to requests and responses as well as a new status code `209 Subscription`.
   
