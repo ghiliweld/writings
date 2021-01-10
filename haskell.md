@@ -59,7 +59,7 @@ instance (Eq a) => Eq (Tree a) where
 the top part of that is a little odd but it just means that given `a` implements `Eq` then `Eq (Tree a)` is defined like so. this is how class inheritance works.
 
 ### purity & monads
-haskell is a pure language, which shouldn't have side effects. but that's not very practical given we'll want IO for anything useful. haskell handles this with monads. i won't explain too much about monads cause everyone and their dog has a post about them. i just think of it as a way of wrapping computation in a context such that it doesn't leave that context. i say it like this cause we don't things happening in IO to leave the IO context since outside values shouldn't affect our programs or it'll be harder to ensure purity. it's hard to explain monads outside of outright defining them since that's all there is to it pretty much. makes more sense to explain each monad on a case by case basis.
+haskell is a pure language, which shouldn't have side effects. but that's not very practical given we'll want IO for anything useful. haskell handles this with monads. i won't explain too much about monads cause everyone and their dog has a post about them. i just think of it as a way of wrapping computation in a context such that it doesn't leave that context. i say it like this cause we don't want things happening in IO to leave the IO context since outside values shouldn't affect our programs or it'll be harder to ensure purity. it's hard to explain monads outside of outright defining them since that's all there is to it pretty much. makes more sense to explain each monad on a case by case basis.
 
 if you're curious, Monads are a type class defined like so:
 ```hs
