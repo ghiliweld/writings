@@ -57,8 +57,35 @@ instance (Eq a) => Eq (Tree a) where
 ```
 
 ### purity & monads
+haskell is a pure language, which shouldn't have side effects. but that's not very practical given we'll want IO for anything useful. haskell handles this with monads. i won't explain too much about monads cause everyone and their dog has a post about them. i just think of it as a way of wrapping computation in a context such that it doesn't leave that context. i say it like this cause we don't things happening in IO to leave the IO context since outside values shouldn't affect our programs or it'll be harder to ensure purity. it's hard to explain monads outside of outright defining them since that's all there is to it pretty much. makes more sense to explain each monad on a case by case basis.
+
+if you're curious, Monads are a type class defined like so:
+```hs
+class  Monad m  where
+    (>>=)            :: m a -> (a -> m b) -> m b
+    (>>)             :: m a -> m b -> m b
+    return           :: a -> m a
+    fail             :: String -> m a
+
+    m >> k           =  m >>= \_ -> k
+```
+
+the IO monad is for wrapping your computation in a IO context such that it doesn't sneak in our program as a regular value. if something bad is happening, the problem is likely in the IO parts of your code (the compiler will prollly catch errors in the pure parts of the code).
+
+the Maybe monad (another popular one), is also for wrapping your computation in a Maybe (read uncertain) context. in this case you'll likely have succesive function calls of return type `Maybe a`. one important part is we also want a value of Nothing in one function to keep propagating down the succesive function calls. hence why instead of having a bunch of case statements checking if we get `Nothing` we just wrapp the whole thing in a Maybe monad context.
+
+the Maybe monad is instantiated like this:
+```hs
+ instance Monad Maybe where
+    return = Just
+    Nothing >>= f = Nothing
+    (Just x) >>= f = f x
+    fail _ = Nothing
+```
+
+so given `a x >>= b >>= c`, this will return `Nothing` if anything here returns `Nothing` even `a x`. the "uncertainty" of a return values propagates down in the context.
 
 ### cons
-- stack/cabal
+stack is kinda eh to work with, had a lot more fun first getting into Go
 
-haskell is really fun until you have to deploy it
+haskell is really fun until you have to deploy it, currently working on [vercel-hs](https://github.com/ghiliweld/vercel-hs) for that. it'll help with quick deploys of haskell code on [vercel](https://vercel.com/).
