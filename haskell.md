@@ -19,7 +19,7 @@ you'll notice that a lot of haskell packages are severely lacking in documentati
 a big part of that is haskell's powerful type system.
 
 ### type system
-aside from compile time guarantees and type inference, haskell also has a natural and elegant syntax for user-defined types which are classified as sum types or product types. note that types can also be sums of products. product types aren't that impressive, so i'll only showing off sum (aka union) types.
+aside from compile time guarantees and type inference, haskell also has a natural and elegant syntax for user-defined types which are classified as sum types or product types. note that types can also be sums of products. product types aren't that impressive, so i'll only show off sum (aka union) types.
 
 user defined sum types are pretty intuitive so you'll likely grasp the next two predefined types in haskell immediately.
 
