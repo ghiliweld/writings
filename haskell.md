@@ -74,7 +74,7 @@ class  Monad m  where
 
 the IO monad is for wrapping your computation in a IO context such that it doesn't sneak in our program as a regular value. if something bad is happening, the problem is likely in the IO parts of your code (the compiler will prolly catch errors in the pure parts of the code).
 
-the Maybe monad (another popular one), is also for wrapping your computation in a Maybe (read uncertain) context. in this case you'll likely have succesive function calls of return type `Maybe a`. one important part is we also want a value of Nothing in one function to keep propagating down the succesive function calls. hence why instead of having a bunch of case statements checking if we get `Nothing` we just wrapp the whole thing in a Maybe monad context.
+the Maybe monad (another popular one), is also for wrapping your computation in a Maybe (read uncertain) context. in this case you'll likely have succesive function calls of return type `Maybe a`. one important part is we also want a value of Nothing in one function to keep propagating down the succesive function calls. hence why instead of having a bunch of case statements checking if we get `Nothing` we just wrap the whole thing in a Maybe monad context.
 
 the Maybe monad is instantiated like this:
 ```hs
@@ -85,7 +85,7 @@ the Maybe monad is instantiated like this:
     fail _ = Nothing
 ```
 
-so given `a x >>= b >>= c`, this will return `Nothing` if anything here returns `Nothing` even `a x`. the "uncertainty" of a return values propagates down in the context.
+so given `a x >>= b >>= c`, this will return `Nothing` if anything here returns `Nothing` even `a x`. the "uncertainty" of a return value propagates down in the context.
 
 ### cons
 stack (the package manager and build tool) is kinda eh to work with, had a lot more fun first getting into Go
