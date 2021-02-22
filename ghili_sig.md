@@ -10,7 +10,6 @@ pk := (g^x, g^y) in a pairing group G
 
 # signing
 on a set of messages **m**, generate a random polynomial *p* such that `deg(p) > |m|` and `p(x) = y`. a signature `s` on any message `m_i` is `s = p(m_i)`.
-a signature.
 essentially a signature is a tuple of `(openings, proofs)`(possibly batched?) under a KZG commitment scheme.
 
 # verification
