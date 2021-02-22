@@ -9,8 +9,7 @@ pk := (g^x, g^y) in a pairing group G
 ```
 
 # signing
-on a set of messages **m**, generate a random polynomial *p* such that `deg(p) > |m|` and `p(x) = y`. a signature `s` on any message `m_i` is `s = p(m_i)`.
-essentially a signature is a tuple of `(openings, proofs)`(possibly batched?) under a KZG commitment scheme.
+on a set of messages **m**, generate a random polynomial *p* such that `deg(p) > |m|` and `p(x) = y`. a signature `s` on any message `m_i` is a KZG opening proof that `p(m_i) = H(m_i)` for some hash function `H`.
 
 # verification
-verification works like how one would verify an opening in a KZG scheme, except we don't have to reveal the value that each `m_i` opens to when messages are batched.
+verification works like how one would verify an opening in a KZG scheme.
