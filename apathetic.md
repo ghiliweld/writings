@@ -5,3 +5,5 @@ similar to optimistic rollups, as in we accept updates "optimistically", but we'
 what can we do with adaptor signatures here.
 
 > i don't trust you, but you can't hurt me anyway so i don't care what you do.
+
+anyone can append wtv they want to the state root, but a malicious party will never be able to prove an invalid withdrawal.
