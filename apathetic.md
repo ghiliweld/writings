@@ -1,6 +1,6 @@
 # apathetic rollups
 
-similar to optimistic rollups, as in we accept updates "optimistically", but we're not concerned with immediate validity since they won't be able to prove it in the long run. tryna do away with proactive fraud proofs in optimistic rollups.
+similar to optimistic rollups, as in we accept updates sort of "optimistically", but we're not concerned with immediate validity since they won't be able to prove it in the long run. tryna do away with proactive fraud proofs in optimistic rollups.
 
 anyone can append wtv they want to the state root, but a malicious party will never be able to prove an invalid withdrawal. apathetic rollups stop malicious actions at "exit time" but allow anything else.
 
@@ -17,3 +17,16 @@ a zk-SNARK proof at exit time could do the trick, altho checking a snark at ever
 - merkle "diff" proofs
 
 thinking this data structure will be key for apathetic rollups
+
+## points of failure
+Given that we accept updates "apathetically", we don't check for validity until the end. This gives a lot of time for adversaries to commit malicious acts like:
+1. double spends
+2. valid txs but not committed
+3. valid txs and committed but no valid trace from origin
+4. exit replay attack
+
+### facts
+- valid exits refer to valid history
+- partiess are in charge of monitoring their own valid state
+
+we append transition, to be coallessed at exit time. can we append snarks as transitions?
