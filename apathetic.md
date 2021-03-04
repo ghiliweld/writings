@@ -6,6 +6,8 @@ anyone can append wtv they want to the state root, but a malicious party will ne
 
 hoping to achieve higher throughput than pessimistic rollups while avoiding the dispute periods that come with fraud proofs.
 
+i think [zkopru](https://docs.zkopru.network/) is pretty close to what apathetic rollups are trying to accomplish.
+
 ## fundamentals
 we accept updates without verification, but we need some version of the past state to remain so that we can check for validity at exit time. the typical optimistic setup isn't suitable for this since we replace state at each transition. this state needs to be checked for fraud quickly so that we can revert. if we want to do away with fraud proofs and only check for validity at exit time, we need an append-only data structure such that we can retrace our current withdrawal's origin. an append-only data structure will preserve valid transactions along with invalid ones. we just need a mechanism such that invalid transations can never pass a withdrawal check, and that valid transactions can't get replayed.
 
