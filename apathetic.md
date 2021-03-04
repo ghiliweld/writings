@@ -7,6 +7,7 @@ anyone can append wtv they want to the state root, but a malicious party will ne
 hoping to achieve higher throughput than pessimistic rollups while avoiding the dispute periods that come with fraud proofs.
 
 i think [zkopru](https://docs.zkopru.network/) is pretty close to what apathetic rollups are trying to accomplish.
+
 [eth-9 & 3/4](https://ethresear.ch/t/ethereum-9-send-erc20-privately-using-mimblewimble-and-zk-snarks/6217)
 
 ## fundamentals
