@@ -13,3 +13,5 @@ With the introduction of forked apps, we begin to see how apps are no longer do 
 WebDB will look at the files in your archive and index them so that when you load a page on a DWeb App, WebDB will be ready to fetch the data you need and display it on the page.
 
 [Braid](https://braid.news/) is interesting cause it might allow us to do this over http.
+
+[bring your own client](https://www.geoffreylitt.com/2021/03/05/bring-your-own-client.html)
