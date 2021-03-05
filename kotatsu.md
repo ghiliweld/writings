@@ -3,3 +3,5 @@
 this doc will outline a design for a privacy-first and local-first social network
 
 meant to be a safer/more comfy alternative to social media, looking to address several points from my [principles](principles.md) doc.
+
+[bring your own client](https://www.geoffreylitt.com/2021/03/05/bring-your-own-client.html)
