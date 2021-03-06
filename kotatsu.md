@@ -14,3 +14,8 @@ something like [sonar](https://apps.apple.com/us/app/sonar-make-vibes-with-frien
 - a dot that represents you can move across the dots if the dot is not occupied
 - we introduce the notion of dots occupied with unicode characters
 - you can shape your own experience on kotatsu by configuring the space however you want
+
+### forking stuff
+[gh pages](https://docs.github.com/en/github/working-with-github-pages/getting-started-with-github-pages)
+
+[api from gh-pages](https://towardsdatascience.com/using-github-pages-for-creating-global-api-76b296c4b3b5)
