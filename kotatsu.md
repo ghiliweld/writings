@@ -1,12 +1,11 @@
-# 🌸🍊kotatsu: a new kind of social network
+# 🌸🍊kotatsu: a new kind of space
 
-this doc will outline a design for a privacy-first and local-first social network
+this doc will outline a design for a privacy-first and local-first ~~social network~~ digital space
 
-meant to be a safer/more comfy alternative to social media, looking to address several points from my [principles](principles.md) doc.
+meant to be a safer/more comfy alternative to life online, looking to address several points from my [principles](principles.md) doc.
 
-[bring your own client](https://www.geoffreylitt.com/2021/03/05/bring-your-own-client.html)
+related: [bring your own client](https://www.geoffreylitt.com/2021/03/05/bring-your-own-client.html)
 
-spatial social network, you start off with a blank slate and you're given flexibility in this space. wtv you do in this spaace is propagated to other peers.
 something like [sonar](https://apps.apple.com/us/app/sonar-make-vibes-with-friends/id1512829586)
 
 the grand vision for kotatsu is a **forkable minimal gaming framework**.
@@ -20,3 +19,7 @@ the grand vision for kotatsu is a **forkable minimal gaming framework**.
 kotatsu will integrate [braid](https://braid.org) to support:
 - GET subscriptions
 - bringing your own client
+
+## design inspo
+- zoomable uis [tweet](https://twitter.com/MatthewWSiu/status/1228155105683263490)
+- nice video by house & garden [video](https://www.youtube.com/watch?v=VhTXrD6mWUw)
