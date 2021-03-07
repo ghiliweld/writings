@@ -20,9 +20,3 @@ the grand vision for kotatsu is a **forkable minimal gaming framework**.
 kotatsu will integrate [braid](https://braid.org) to support:
 - GET subscriptions
 - bringing your own client
-- forking the client & dot map
-
-### forking stuff
-[gh pages](https://docs.github.com/en/github/working-with-github-pages/getting-started-with-github-pages)
-
-[api from gh-pages](https://towardsdatascience.com/using-github-pages-for-creating-global-api-76b296c4b3b5)
