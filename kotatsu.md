@@ -16,6 +16,8 @@ the grand vision for kotatsu is a **forkable minimal gaming framework**.
 - we introduce the notion of dots occupied with unicode characters
 - you can shape your own experience on kotatsu by configuring the space however you want
 
+![empty dot grid](dot_grid.png)
+
 kotatsu will integrate [braid](https://braid.org) to support:
 - GET subscriptions
 - bringing your own client
