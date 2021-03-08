@@ -25,3 +25,4 @@ kotatsu will integrate [braid](https://braid.org) to support:
 ## design inspo
 - zoomable uis [tweet](https://twitter.com/MatthewWSiu/status/1228155105683263490)
 - nice video by house & garden [video](https://www.youtube.com/watch?v=VhTXrD6mWUw)
+- hundred rabbits dotgrid [repo](https://github.com/hundredrabbits/Dotgrid)
