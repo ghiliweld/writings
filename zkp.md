@@ -26,8 +26,12 @@ and the verifier will be able to verify that *p* is true without the prover havi
  
 ## techniques
 the field of zkps advances every day with new constructions that make zkps faster and smaller seem to come out every month. however, new ways to leverage snarks are somewhat rarer. this is where we'll be reviwing techniques that allow you to do interesting things with zkps.
+
 ### recursive composition of snarks
 this is essentially using sub-snarks to prove an overarching snark. say you had two snarks: `p1` that proves that `a -> b` and `p2` that proved that `b -> c`. you could produce a snark `p3` that proves `a -> c` using `p1 ^ p2`. this technique is very intuitive and quite simple but has *immense* potential for speeding up verifications of large computations (like blockchain verifications) since you're wrapping all these small and fast snark into a snark that's just as small and just as fast.
+
+### apathetic accumulation
+is it possible to incrementally accumulate a recursive snark like halo w/o verifying its validity, even tho a sub-proof might be invalid. i think proof carrying data can prove statements on DAGs so studying PCDs might be interesting.
 
 ## technicals (as layman-y as possible)
 as stated above, a zk-SNARK is a cryptographic proof of computational integrity, a certificate that a computation was run correctly if you will. practically a zk-SNARK scheme is actually two things in one:
