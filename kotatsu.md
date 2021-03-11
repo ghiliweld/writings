@@ -1,6 +1,6 @@
 # 🌸🍊kotatsu: a new kind of space
 
-this doc will outline a design for a privacy-first and local-first ~~social network~~ digital space
+this doc will outline a design for a privacy-first and local-first digital space
 
 meant to be a safer/more comfy alternative to life online, looking to address several points from my [principles](principles.md) doc.
 
