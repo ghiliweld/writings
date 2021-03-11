@@ -16,6 +16,8 @@ we accept updates without verification, but we need some version of the past sta
 a zk-SNARK proof at exit time could do the trick, altho checking a snark at every rollup (the zk-rollup/pessimistic approach) would be too expensive, checking once at exit time more than makes up for the cost. something without a snark would be best since it's hard to represent general computation in snarks.
 
 ## cryptography
+can halo snarks be accumulated apathetically? so we incrementally accumulate it apathetically and check for validity at the end.
+
 [streaming merkle proofs within binary numeral trees](https://eprint.iacr.org/2021/038.pdf), with support for:
 - single leaf, single range and multi (disjoint) range proofs
 - merkle "diff" proofs
