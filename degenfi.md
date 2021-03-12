@@ -5,6 +5,6 @@ crypto finance but ✨degenerate✨, scared money don't make no money after all.
 
 [twitter thread](https://twitter.com/ghiliweld/status/1370199762813747200)
 
-### flash loans
+### flash txs (swaps & loans)
 
 ### yield farming
