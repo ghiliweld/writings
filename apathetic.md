@@ -15,6 +15,17 @@ we accept updates without verification, but we need some version of the past sta
 
 a zk-SNARK proof at exit time could do the trick, altho checking a snark at every rollup (the zk-rollup/pessimistic approach) would be too expensive, checking once at exit time more than makes up for the cost. something without a snark would be best since it's hard to represent general computation in snarks.
 
+|                 | Optimistic           | Pessimistic          | Apathetic                                               |
+|:---------------:|:--------------------:|:--------------------:|:--------------------------------------------------------|
+| Computation     | generalizable        | hard to generalize   | hard to generalize                                      |
+| Finality        | slow (~1 week)       | fast (seconds)       | fast (seconds)                                          |
+| Proof Type      | fraud proof          | validity proof       | validity proof (at exit time)                           |
+| Transition      | cheap & fast         | expensive & slower   | expensive & slower at exit time, otherwise cheap & fast |
+| Private         | possible             | by default           | possible                                                |
+| Scaling Benefit | ~100 txs per rollup  | ~1000 txs per rollup | ~1000 txs per rollup                                    |
+
+pessimistic are conceptually slower and more expensive due to longer prover times and verifier times. luckily this is sublinear in the amount of txs in the rollup ans they make up for it with fast finality, but transitions are still slower than acccepting updates optimistically or apathetically. apathetic rollups delay the slow and expensive part until exit time, where a snark is needed to prove a valid withdrawal.
+
 ## cryptography
 can halo snarks be accumulated apathetically? so we incrementally accumulate it apathetically and check for validity at the end.
 
