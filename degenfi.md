@@ -22,4 +22,6 @@ here are some interesting articles and papers on flash loans:
 - [The DeFi ‘Flash Loan’ Attack That Changed Everything](https://www.coindesk.com/the-defi-flash-loan-attack-that-changed-everything)
 - [On the Just-In-Time Discovery of Profit-Generating Transactions in DeFi Protocols](https://arxiv.org/pdf/2103.02228.pdf)
 
+![cmon fam...](https://cdn.discordapp.com/attachments/819698225492525106/819977208357060638/Screen_Shot_2021-03-12_at_11.56.21_AM.png)
+
 ### yield farming
