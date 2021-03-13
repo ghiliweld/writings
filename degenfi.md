@@ -1,5 +1,5 @@
 # degenerate finance
-crypto finance but ✨degenerate✨, scared money don't make no money after all. 
+crypto finance but 😈degenerate😈, scared money don't make no money after all. 
 
 this doc is for following new crazy trends in defi, and the new financial primitives being built on ethereum.
 
