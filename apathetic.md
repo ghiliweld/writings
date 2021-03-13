@@ -26,6 +26,8 @@ a zk-SNARK proof at exit time could do the trick, altho checking a snark at ever
 
 pessimistic are conceptually slower and more expensive due to longer prover times and verifier times. luckily this is sublinear in the amount of txs in the rollup ans they make up for it with fast finality, but transitions are still slower than acccepting updates optimistically or apathetically. apathetic rollups delay the slow and expensive part until exit time, where a snark is needed to prove a valid withdrawal.
 
+the security assumptions made in optimistic rollups are a lot simpler than the ones in pessimistic or apathetic rollups.
+
 ## cryptography
 can halo snarks be accumulated apathetically? so we incrementally accumulate it apathetically and check for validity at the end.
 
