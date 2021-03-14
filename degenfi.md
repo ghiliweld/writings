@@ -25,3 +25,8 @@ here are some interesting articles and papers on flash loans:
 ![cmon fam...](https://cdn.discordapp.com/attachments/819698225492525106/819977208357060638/Screen_Shot_2021-03-12_at_11.56.21_AM.png)
 
 ### yield farming
+i will summarize [this article](https://coinmarketcap.com/alexandria/article/what-is-yield-farming) and [this article](https://www.coindesk.com/defi-yield-farming-comp-token-explained).
+
+yield farming is staking or lending crypto assets to generate interest from it. starts off simple enough, but the real fun starts when defi protocols also issue out governance tokens to users providing liquidity (LPs). given defi's composability, sophisticated investors have started hacking together ways to generate more yield across different defi protocols and maximize their APY. the yields even on simple farming tactics are fairly impressive, but with higher rewards comes way higher risk, especially as these farming tactics can get pretty complex.
+
+defi pulse has a [great newsletter](https://yieldfarmer.substack.com/) for following trends in yield farming.
