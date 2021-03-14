@@ -7,6 +7,12 @@ this doc is for following new crazy trends in defi, and the new financial primit
 
 crypto opens up interesting avenues for more sophisticated investment/trading strategies, esp since defi protocols are permissionless and can easily be composed with each other.
 
+<details>
+  <summary>questions</summary>
+  
+  - why does each protocol need their own liquidity pool? couldn't there be one liquidity pool supplyinng the entire defi ecosystem?
+</details>
+
 ### flash loans
 flash loans are uncollateralized loans of assets for a one transaction block in a blockchain. any amount from a liquidity pool can be borrowed for anything as long as the borrowed amount is returned at the end of the trannsaction, or else the flash loan is rolled back. one natural use case for flash loans are [capital-free arbitrage](https://uniswap.org/docs/v2/core-concepts/flash-swaps/#capital-free-arbitrage) opportunities. if you spot an arbitrage opportunity that you cannot make full use of with your assets alone, you can borrow millions of dollars for one tx, return it at the end of the tx and pocket the difference. the loan is risk-free for the lender since the smart contract can ensure the funds are always returned and the only cost associated is gas fees the borrower has to pay for the loan. 
 
