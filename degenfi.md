@@ -16,7 +16,7 @@ crypto opens up interesting avenues for more sophisticated investment/trading st
 ### flash loans
 flash loans are uncollateralized loans of assets for a one transaction block in a blockchain. any amount from a liquidity pool can be borrowed for anything as long as the borrowed amount is returned at the end of the trannsaction, or else the flash loan is rolled back. one natural use case for flash loans are [capital-free arbitrage](https://uniswap.org/docs/v2/core-concepts/flash-swaps/#capital-free-arbitrage) opportunities. if you spot an arbitrage opportunity that you cannot make full use of with your assets alone, you can borrow millions of dollars for one tx, return it at the end of the tx and pocket the difference. the loan is risk-free for the lender since the smart contract can ensure the funds are always returned and the only cost associated is gas fees the borrower has to pay for the loan. 
 
-**it's free money!**
+**it's free money!**, but there's [risks](https://twitter.com/FrankResearcher/status/1366795352330948610)
 
 flash loans are the most exciting thing for me in defi since it democratizes arbitrage for anyone, removing the high barrier of sufficient capital to profit from market inefficiencies.
 
