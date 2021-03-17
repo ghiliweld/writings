@@ -31,9 +31,12 @@ here are some interesting articles and papers on flash loans:
 ![cmon fam...](https://cdn.discordapp.com/attachments/819698225492525106/819977208357060638/Screen_Shot_2021-03-12_at_11.56.21_AM.png)
 
 **ok so it's not free money apparently, lol**
+here's some articles on it:
 - [MEV and me](https://research.paradigm.xyz/MEV)
 - [Ethereum is a Dark Forest](https://medium.com/@danrobinson/ethereum-is-a-dark-forest-ecc5f0505dff)
 - [tweet](https://twitter.com/FrankResearcher/status/1366795352330948610)
+
+in short, no sane miner will leave money on the table. since miners can see txs before they're included on-chain, they can also frontrun it themselves to bank the profit for themselves. any solution to counteract this needs to prevent miners from extracting value for themselves, as well as incentivize at least one miner to act honestly.
 
 ### yield farming
 i will summarize [this article](https://coinmarketcap.com/alexandria/article/what-is-yield-farming) and [this article](https://www.coindesk.com/defi-yield-farming-comp-token-explained).
