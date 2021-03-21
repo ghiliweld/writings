@@ -17,3 +17,6 @@ will update once i learn what that means lol.
 
 ## the permaweb
 arweave, built on top of https, wants to build a layer of permanence to content on the web. they call this the permaweb, and it'll enable a network where content on the web is stored forever and access at anytime from anyplace. because it's built on top of https, there's no need for gateways either, just browse like you woulld on the regular web. the content is addressed by a hash so it'll look ugly, but you can always point a regular domain name to content on arweave.
+
+## smartweave
+smart contracts on the blockweave
