@@ -41,7 +41,7 @@ in short, no sane miner will leave money on the table. since miners can see txs 
 
 is there a way to get miners competing against each other that's in our best interest? such that any miner that attempts a chain reorg will lose to other miners acting honestly, or sum like that.
 
-miners get rekt in [salmonella](https://github.com/Defi-Cartel/salmonella)
+miners get rekt in [salmonella](https://github.com/Defi-Cartel/salmonella) and [hn post](https://news.ycombinator.com/item?id=26514624).
 
 ### yield farming
 i will summarize [this article](https://coinmarketcap.com/alexandria/article/what-is-yield-farming) and [this article](https://www.coindesk.com/defi-yield-farming-comp-token-explained).
