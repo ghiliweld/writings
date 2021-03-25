@@ -6,6 +6,8 @@ arweave is a data storage network, similar to ipfs and sia, with one key differe
 
 here's the [whitepaper](https://www.arweave.org/whitepaper.pdf) which provides an overview of the protocol, and the more in depth [yellow paper](https://www.arweave.org/yellow-paper.pdf) covering protocol and economic details.
 
+![economics](https://cdn.discordapp.com/attachments/807375862072475688/823316973559480381/Screen_Shot_2021-03-21_at_6.07.09_PM.png)
+
 key consensus mechanisms (Proof of Access) are baked into the protocol to ensure file are stored permanently and don't go missing like on ipfs.
 
 ---
