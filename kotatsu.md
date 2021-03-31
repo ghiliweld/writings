@@ -23,6 +23,7 @@ kotatsu will integrate [braid](https://braid.org) to support:
 - bringing your own client
 
 ## design inspo
+- the lions and lambs of march in boston [site](https://march-lions-lambs.glitch.me/)
 - zoomable uis [tweet](https://twitter.com/MatthewWSiu/status/1228155105683263490)
 - nice video by house & garden [video](https://www.youtube.com/watch?v=VhTXrD6mWUw)
 - hundred rabbits dotgrid [repo](https://github.com/hundredrabbits/Dotgrid)
